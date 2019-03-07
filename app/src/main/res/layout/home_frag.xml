@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@android:color/holo_orange_light"
+        android:gravity="center">
+
+        <TextView
+            android:id="@+id/title_home"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="5dp"
+            android:text="@string/hometitle"
+            android:textSize="22sp"
+            android:textColor="@android:color/black"/>
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="230dp"
+        android:padding="10dp">
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingHorizontal="16dp"
+            android:background="@drawable/newsimage"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_alignParentBottom="true"
+            android:padding="5dp"
+            android:gravity="center"
+            android:background="@drawable/shape2"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/imagetitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/appname"
+                android:gravity="center"
+                android:textColor="@android:color/black"/>
+
+        </LinearLayout>
+    </RelativeLayout>
+    <LinearLayout
+        android:layout_marginHorizontal="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="130dp"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btn_fin"
+            style="@style/btn_style"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:drawableTop="@drawable/report"
+            android:text="@string/btn_fin"
+            android:textSize="15sp" />
+
+        <Button
+            android:id="@+id/btn_stock"
+            style="@style/btn_style"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:drawableTop="@drawable/economics"
+            android:text="@string/btn_stock"
+            android:textSize="15sp"/>
+
+        <Button
+            android:id="@+id/btn_bank"
+            style="@style/btn_style"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:drawableTop="@drawable/bank"
+            android:text="@string/btn_bank"
+            android:textSize="15sp"/>
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="130dp"
+        android:orientation="horizontal"
+        android:layout_marginHorizontal="10dp">
+
+        <Button
+            android:id="@+id/btn_bond"
+            style="@style/btn_style"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:drawableTop="@drawable/bond"
+            android:text="@string/btn_bond"
+            android:textSize="15sp"/>
+
+        <Button
+            android:id="@+id/btn_inv"
+            style="@style/btn_style"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:drawableTop="@drawable/investment"
+            android:text="@string/btn_inv"
+            android:textSize="15sp"/>
+
+        <Button
+            android:id="@+id/btn_poli"
+            style="@style/btn_style"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:drawableTop="@drawable/policy"
+            android:text="@string/btn_poli"
+            android:textSize="15sp"/>
+
+    </LinearLayout>
+
+</LinearLayout>

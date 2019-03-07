@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@android:color/holo_orange_light"
+        android:gravity="center">
+
+        <TextView
+            android:id="@+id/title_data"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="5dp"
+            android:text="@string/datatitle"
+            android:textColor="@android:color/black"
+            android:textSize="22sp" />
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="230dp"
+        android:padding="10dp">
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingHorizontal="16dp"
+            android:background="@drawable/data"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_alignParentBottom="true"
+            android:padding="5dp"
+            android:gravity="center"
+            android:background="@drawable/shape2"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/datatitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/appname"
+                android:gravity="center"
+                android:textColor="@android:color/black"/>
+
+        </LinearLayout>
+    </RelativeLayout>
+    <LinearLayout
+        android:layout_marginHorizontal="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="130dp"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btn_sear"
+            style="@style/btn_style"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:drawableTop="@drawable/search"
+            android:text="@string/btn_search"
+            android:textSize="15sp" />
+
+        <Button
+            android:id="@+id/btn_year"
+            style="@style/btn_style"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:drawableTop="@drawable/calendar"
+            android:text="@string/btn_year"
+            android:textSize="15sp" />
+
+        <Button
+            android:id="@+id/btn_dim"
+            style="@style/btn_style"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:drawableTop="@drawable/dimensions"
+            android:text="@string/btn_dimen"
+            android:textSize="15sp" />
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="130dp"
+        android:orientation="horizontal"
+        android:layout_marginHorizontal="10dp">
+
+        <Button
+            android:id="@+id/btn_place"
+            style="@style/btn_style"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:drawableTop="@drawable/place"
+            android:text="@string/btn_place"
+            android:textSize="15sp" />
+
+        <Button
+            android:id="@+id/btn_report"
+            style="@style/btn_style"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:drawableTop="@drawable/year_report"
+            android:text="@string/btn_report"
+            android:textSize="15sp" />
+
+        <Button
+            android:id="@+id/btn_more"
+            style="@style/btn_style"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:drawableBottom="@drawable/more"
+            android:textSize="15sp"/>
+
+    </LinearLayout>
+
+
+</LinearLayout>

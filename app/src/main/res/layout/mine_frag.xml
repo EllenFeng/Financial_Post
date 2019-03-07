@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@android:color/holo_orange_light"
+        android:gravity="center">
+
+        <TextView
+            android:id="@+id/title_mine"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="5dp"
+            android:text="@string/btn_sel"
+            android:textSize="22sp"
+            android:textColor="@android:color/black"/>
+    </RelativeLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+
+            <Button
+                android:id="@+id/btn_fav"
+                style="@style/btn_style"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:drawableLeft="@drawable/report"
+                android:text="收藏"
+                android:textSize="20sp"
+                android:drawableRight="@drawable/arrow_right"/>
+
+            <Button
+                android:id="@+id/btn_follow"
+                style="@style/btn_style"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_gravity="left"
+                android:drawableLeft="@drawable/follow"
+                android:text="关注"
+                android:textSize="20sp"
+                android:drawableRight="@drawable/arrow_right"/>
+
+
+
+            <Button
+                android:id="@+id/btn_note"
+                style="@style/btn_style"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="left"
+                android:drawableLeft="@drawable/note"
+                android:text="笔记"
+                android:textSize="20sp"
+                android:drawableRight="@drawable/arrow_right"/>
+
+
+</LinearLayout>
+</LinearLayout>
