@@ -30,4 +30,11 @@ public class DataReport extends AppCompatActivity {
         startActivity(home);
         finish();
     }
+    @Override
+    public void onBackPressed() {
+        Intent home = new Intent(this, MainActivity.class);
+        home.putExtra("class",2);
+        startActivity(home);
+        finish();
+    }
 }

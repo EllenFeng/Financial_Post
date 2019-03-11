@@ -163,4 +163,11 @@ public class InvestNews extends AppCompatActivity implements Runnable{
         handler.sendMessage(msg);
         Log.i("thread","sendMessage.....");
     }
+    @Override
+    public void onBackPressed() {
+        Intent home = new Intent(this, MainActivity.class);
+        home.putExtra("class",1);
+        startActivity(home);
+        finish();
+    }
 }

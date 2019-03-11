@@ -58,6 +58,11 @@ public class MainActivity extends FragmentActivity {
         dbHelper.closeDatabase();
         DBManager dbManager=new DBManager();
         dbManager.creatTables();
+
+        DBManager_company manager=new DBManager_company();
+        CompanyItem item1=new CompanyItem("000004","国农科技","中国农大科技股份有限公司","广东","http://quotes.money.163.com/1000004.html#11a01","广东省深圳市南山区中心路(深圳湾段)3333号中铁南方总部大厦503室");
+        manager.addFollow(item1);
+
         if(from == 3)
             init3();
         else{

@@ -20,7 +20,7 @@ public class DBManager {
         database = SQLiteDatabase.openOrCreateDatabase(DBHelper.DB_PATH + "/" + DBHelper.DB_NAME, null);
         database.execSQL("CREATE TABLE IF NOT EXISTS "+"note"+"(TITLE TEXT PRIMARY KEY,CONTENT TEXT,DATE TEXT)");  //笔记存储
         database.execSQL("CREATE TABLE IF NOT EXISTS "+"mark"+"(NEWSTITLE TEXT PRIMARY KEY,LINK TEXT,ORIGINALDATE TEXT,MARKDATE TEXT)");  //收藏存储
-        database.execSQL("CREATE TABLE IF NOT EXISTS "+"follow"+"(ID TEXT PRIMARY KEY,NAME TEXT,FULLNAME TEXT, CITY TEXT,LINK TEXT)");  //关注存储
+        database.execSQL("CREATE TABLE IF NOT EXISTS "+"followcom"+"(ID TEXT PRIMARY KEY,NAME TEXT,FULLNAME TEXT, CITY TEXT,LINK TEXT, ADDRESS TEXT)");  //关注存储
         database.close();
     }
 

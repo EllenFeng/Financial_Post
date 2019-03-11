@@ -112,6 +112,13 @@ public class MyMark extends AppCompatActivity implements AdapterView.OnItemLongC
         }
 
     }
+    @Override
+    public void onBackPressed() {
+        Intent home = new Intent(this, MainActivity.class);
+        home.putExtra("class",3);
+        startActivity(home);
+        finish();
+    }
 
 
 }

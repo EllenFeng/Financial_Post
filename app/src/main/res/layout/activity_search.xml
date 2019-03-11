@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
     <RelativeLayout
@@ -9,7 +11,7 @@
         android:background="@android:color/holo_orange_light">
 
         <Button
-            android:id="@+id/btn_backto"
+            android:id="@+id/search_backto"
             android:layout_width="25dp"
             android:layout_height="25dp"
             android:layout_alignParentStart="true"
@@ -22,37 +24,62 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
-            android:layout_marginStart="130dp"
+            android:layout_marginStart="160dp"
             android:padding="5dp"
             android:text=""
             android:textColor="@android:color/black"
             android:textSize="22sp" />
     </RelativeLayout>
+
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="10dp"
-            android:hint="请输入名称或股票代码"
-            android:layout_weight="10"/>
+        android:layout_height="50dp"
+        android:background="@android:color/holo_orange_light">
 
-        <Button
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="8"
+            android:gravity="center">
+
+            <EditText
+                android:id="@+id/edittext_search"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="10dp"
+                android:layout_weight="10"
+                android:padding="5dp"
+                android:background="@drawable/shape_searchbar"
+                android:hint="请输入名称或股票代码" />
+
+            <ImageView
+                android:id="@+id/imageView_remove"
+                android:layout_width="34dp"
+                android:layout_height="27dp"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="25dp"
+                app:srcCompat="@drawable/remove"
+                android:visibility="gone"/>
+        </RelativeLayout>
+
+
+        <TextView
+            android:id="@+id/textView_search"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:background="#e4e3e3"
             android:layout_margin="6dp"
             android:padding="3dp"
+            android:layout_gravity="center"
             android:text="@string/btn_search"
+            android:textColor="@android:color/white"
             android:textSize="20sp" />
     </LinearLayout>
 
     <ListView
         android:paddingTop="5dp"
         android:paddingHorizontal="16dp"
-        android:id="@+id/list_view1"
+        android:id="@+id/listview_search"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 </LinearLayout>

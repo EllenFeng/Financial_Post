@@ -6,7 +6,7 @@ public class CompanyItem {
     private String fullName;
     private String city;
     private String link;
-
+    private String add;
 
     public CompanyItem() {
         super();
@@ -15,14 +15,16 @@ public class CompanyItem {
         name = "";
         fullName = "";
         city = "";
+        add = "";
     }
-    public CompanyItem(String ID,String name,String fullName,String city, String link) {
+    public CompanyItem(String ID,String name,String fullName,String city, String link, String add) {
         super();
         this.ID = ID;
         this.name = name;
         this.fullName = fullName;
         this.city = city;
         this.link = link;
+        this.add = add;
 
     }
 
@@ -32,6 +34,14 @@ public class CompanyItem {
 
     public void setID(String ID) {
         this.ID = ID;
+    }
+
+    public String getAdd() {
+        return add;
+    }
+
+    public void setAdd(String add) {
+        this.add = add;
     }
 
     public String getName() {

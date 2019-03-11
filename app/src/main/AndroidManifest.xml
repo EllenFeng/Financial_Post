@@ -75,9 +75,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MyNote_write"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".MyNote_Read"
-            android:screenOrientation="portrait"></activity>
+        <activity
+            android:name=".MyNote_write"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".MyNote_Read"
+            android:screenOrientation="portrait" />
+        <activity android:name=".CompanyContent"></activity>
     </application>
+
 </manifest>
