@@ -3,6 +3,8 @@ package com.example.financial_post;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.net.Uri;
 import android.os.Handler;
 import android.os.Message;
@@ -48,6 +50,7 @@ public class CompanyContent extends AppCompatActivity implements Runnable{
     private LinearLayout price_change_layout;
     private ScrollView scrollview;
     private Handler handler;
+    private int where;
     private String data = "请稍后......  ";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,8 +64,8 @@ public class CompanyContent extends AppCompatActivity implements Runnable{
         link = getIntent().getStringExtra("Link");
         address = getIntent().getStringExtra("Add");
         city = getIntent().getStringExtra("City");
+        where = getIntent().getIntExtra("where",1);
         int msgWhat = 3;
-
         Thread t = new Thread(CompanyContent.this);
         t.start();
         handler = new Handler(){
@@ -112,18 +115,59 @@ public class CompanyContent extends AppCompatActivity implements Runnable{
 
     }
     public void openmenu(View btn){
-        final String[] str_menu=new String[]{"详情","数据","关注"};
-        final DBManager_Note manager=new DBManager_Note();
+        final String[] str_menu=new String[]{"刷新","详情","数据","关注"};
+        final String[] str_menu1=new String[]{"刷新","详情","数据","取消关注"};
+        final DBManager_company manager1=new DBManager_company();
+
         AlertDialog.Builder builder=new AlertDialog.Builder(this);
-        builder.setItems(str_menu,new DialogInterface.OnClickListener(){
+        builder.setItems(manager1.isFollowExisted(ID)?str_menu1:str_menu,new DialogInterface.OnClickListener(){
 
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                if(which==0){  //新建
-                }
-                else{  //删除
+                switch (which){
+                    case 0:  //刷新
+                        Intent intent = new Intent();
+                        intent.setClass(CompanyContent.this, CompanyContent.class);
+                        intent.putExtra("ID",ID);
+                        intent.putExtra("Name",name);
+                        intent.putExtra("FullName",fullname);
+                        intent.putExtra("Link",link);
+                        intent.putExtra("Add",address);
+                        intent.putExtra("City",city);
+                        startActivity(intent);
+                        finish();
+                        break;
+                    case 1:  //详情
+                        Intent comlink = new Intent();
+                        comlink.setClass(CompanyContent.this, CompanyLink.class);
+                        comlink.putExtra("link",link);
+                        startActivity(comlink);
+                        break;
+                    case 2:  //数据
+                        SQLiteDatabase database = SQLiteDatabase.openOrCreateDatabase(DBHelper.DB_PATH + "/" + DBHelper.DB_NAME, null);
+                        Cursor cursor = database.query("company",null,null,null,null,null,"代码", String.valueOf(8));
+                        String city1= "";
+                        if (cursor != null) {
+                            while(cursor.moveToNext()){
+                                String name = cursor.getString(cursor.getColumnIndex("所在省市"));
+                                city1=name;
+                            }
+                        }
+                        Toast.makeText(CompanyContent.this,city1,Toast.LENGTH_SHORT).show();
 
-
+                        break;
+                    case 3:  //关注or取消关注
+                        CompanyItem item1=new CompanyItem(ID,name,fullname,city,link,address);
+                        DBManager_company manager=new DBManager_company();
+                        if(!manager.isFollowExisted(ID)){  //没有关注过
+                            manager.addFollow(item1);
+                            Toast.makeText(CompanyContent.this,"关注成功！",Toast.LENGTH_SHORT).show();
+                        }
+                        else{
+                            manager.deleteFollow(ID);
+                            Toast.makeText(CompanyContent.this,"已取消关注！",Toast.LENGTH_SHORT).show();
+                        }
+                        break;
                 }
             }
         });
@@ -211,16 +255,19 @@ public class CompanyContent extends AppCompatActivity implements Runnable{
                 String html=getHTML(link2,"utf-8").trim();
                 String info_data=html.substring(21,html.length()-1);  //去除首尾不符合json格式的部分
                 Log.i("data",info_data);
+                DecimalFormat df=new DecimalFormat("##########.00");  //限制保存两位小数
                 JSONObject jsonObject=new JSONObject(info_data);
                 JSONObject info=jsonObject.getJSONObject(code);
                 Elements data1 = doc.select(".stock_detail strong");
                 Elements data3 = doc.select(".stock_detail .stock_bref span");
                 stock_price=info.getString("price");
+                float i=Float.parseFloat(stock_price);
+                i=Float.parseFloat(df.format(i));
+                stock_price=String.valueOf(i);
                 Log.i("stock_price",stock_price);
                 price_change=info.getString("updown");
                 price_change_per=info.getString("percent");
-                DecimalFormat df=new DecimalFormat("##########.00");  //限制保存两位小数
-                float i=Float.parseFloat(price_change_per)*100;
+                i=Float.parseFloat(price_change_per)*100;
                 i=Float.parseFloat(df.format(i));   //限制保存两位小数
                 price_change_per=String.valueOf(i)+"%";
                 Log.i("i",String.valueOf(i)+"%");
@@ -229,7 +276,7 @@ public class CompanyContent extends AppCompatActivity implements Runnable{
                 zuigao="最高："+info.getString("high");
                 zuidi="最低："+info.getString("low");
                 chengjiaoliang=info.getString("volume");
-                i=Float.parseFloat(chengjiaoliang)/10000;
+                i=Float.parseFloat(chengjiaoliang)/1000000;  //一手为一百股
                 i=Float.parseFloat(df.format(i));
                 chengjiaoliang="成交量："+String.valueOf(i)+"万手";
                 chengjiaoe=info.getString("turnover");
@@ -321,5 +368,20 @@ public class CompanyContent extends AppCompatActivity implements Runnable{
         }
         return null;
     }
+    @Override
+    public void onBackPressed() {
+        if(where==2){
+            Intent intent = new Intent(this, MyFollow.class);
+            startActivity(intent);
+            finish();
+        }
+        else
+            finish();
+//        else{
+//            Intent intent = new Intent(this, DataSearch.class);
+//            startActivity(intent);
+//            finish();
+//        }
 
+    }
 }

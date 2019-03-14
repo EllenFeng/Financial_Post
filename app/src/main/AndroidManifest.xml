@@ -81,7 +81,9 @@
         <activity
             android:name=".MyNote_Read"
             android:screenOrientation="portrait" />
-        <activity android:name=".CompanyContent"></activity>
+        <activity android:name=".CompanyContent" />
+        <activity android:name=".CompanyLink" />
+        <activity android:name=".company_online_info"></activity>
     </application>
 
 </manifest>

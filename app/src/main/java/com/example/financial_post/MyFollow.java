@@ -75,7 +75,9 @@ public class MyFollow extends AppCompatActivity implements AdapterView.OnItemLon
                 intent.putExtra("Link",link);
                 intent.putExtra("Add",add);
                 intent.putExtra("City",city);
+                intent.putExtra("where",2);
                 startActivity(intent);
+                finish();
             }
         });
         listView.setOnItemLongClickListener(this);

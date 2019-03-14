@@ -16,7 +16,7 @@ import java.io.OutputStream;
 
 public class DBHelper{  //将数据库拷贝到系统数据库默认位置DBHelper.DB_PATH +"/"+DBHelper.DB_NAME
     private final int BUFFER_SIZE = 400000;
-    public static final String DB_NAME = "findata.db"; //保存的数据库文件名
+    public static final String DB_NAME = "fin_data.db"; //保存的数据库文件名
     public static final String PACKAGE_NAME = "com.example.financial_post";
     public static final String DB_PATH = "/data" + Environment.getDataDirectory().getAbsolutePath() + "/" +PACKAGE_NAME;
     //在手机里存放数据库的位置 （系统默认位置）
