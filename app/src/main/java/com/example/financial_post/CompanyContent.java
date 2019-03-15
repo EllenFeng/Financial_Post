@@ -144,17 +144,12 @@ public class CompanyContent extends AppCompatActivity implements Runnable{
                         startActivity(comlink);
                         break;
                     case 2:  //数据
-                        SQLiteDatabase database = SQLiteDatabase.openOrCreateDatabase(DBHelper.DB_PATH + "/" + DBHelper.DB_NAME, null);
-                        Cursor cursor = database.query("company",null,null,null,null,null,"代码", String.valueOf(8));
-                        String city1= "";
-                        if (cursor != null) {
-                            while(cursor.moveToNext()){
-                                String name = cursor.getString(cursor.getColumnIndex("所在省市"));
-                                city1=name;
-                            }
-                        }
-                        Toast.makeText(CompanyContent.this,city1,Toast.LENGTH_SHORT).show();
-
+                        Intent info=new Intent();
+                        info.setClass(CompanyContent.this,company_online_info.class);
+                        info.putExtra("ID",ID);
+                        info.putExtra("link",link);
+                        info.putExtra("name",name);
+                        startActivity(info);
                         break;
                     case 3:  //关注or取消关注
                         CompanyItem item1=new CompanyItem(ID,name,fullname,city,link,address);
@@ -229,7 +224,6 @@ public class CompanyContent extends AppCompatActivity implements Runnable{
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        Log.i("thread","run.....");
         HashMap<String, String> map = new HashMap<String, String>();
         String stock_price="--",price_change="--",price_change_per="--";
         String jinkai="今开：--",zuoshou="昨收：--",zuigao="最高：--",zuidi="最低：--",chengjiaoliang="成交量：--",chengjiaoe="成交额：--",liangbi="量比：--";

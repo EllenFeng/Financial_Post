@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListAdapter;
 import android.widget.ListView;
@@ -25,6 +26,17 @@ public class DataPlace extends AppCompatActivity {
         ListAdapter adapter=new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,places);
         ListView listView = (ListView) findViewById(R.id.list_view_data);
         listView.setAdapter(adapter);
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                String city=places[position];
+                Intent intent = new Intent();
+                intent.setClass(DataPlace.this, Data_company_city_list.class);
+                intent.putExtra("city",city);
+                startActivity(intent);
+                finish();
+            }
+        });
     }
     public void back(View btn){
         Intent home = new Intent(this, MainActivity.class);

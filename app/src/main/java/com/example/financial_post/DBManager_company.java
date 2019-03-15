@@ -135,4 +135,73 @@ public class DBManager_company {
         else
             return true;
     }
+    public List<String> company_overalldata(String ID){  //company_overall_info.java
+        database = SQLiteDatabase.openOrCreateDatabase(DBHelper.DB_PATH + "/" + DBHelper.DB_NAME, null);
+        List<String> companydetail = new ArrayList<String>();
+        companydetail.add("年份");
+        companydetail.add("代码");
+        companydetail.add("每股收益");
+        companydetail.add("每股现金流");
+        companydetail.add("主营收入（亿）");
+        companydetail.add("同比增长（%）");
+        companydetail.add("净利润（亿）");
+        companydetail.add("同比增长（%）");
+        Cursor cursor;
+        for(int i=2017;i>2001;i--){
+            String table="financial_data_yejigailan_"+String.valueOf(i);
+            String sql="SELECT * FROM "+table+" WHERE \"代码\" LIKE '%"+ID+"%'";
+            Log.i("sql",sql);
+            cursor=database.rawQuery(sql,null);
+            if(cursor==null){
+                cursor.close();
+                continue;
+            }
+            else{
+                while(cursor.moveToNext()){
+                    Log.i("table",table);
+                    companydetail.add(String.valueOf(i));
+                    companydetail.add(ID);
+                    String data=cursor.getString(cursor.getColumnIndex("每股收益"));
+                    companydetail.add(data==null?"--":data);
+                    data=cursor.getString(cursor.getColumnIndex("每股现金流"));
+                    companydetail.add(data==null?"--":data);
+                    data=cursor.getString(cursor.getColumnIndex("主营收入亿"));
+                    companydetail.add(data==null?"--":data);
+                    data=cursor.getString(cursor.getColumnIndex("同比增长百分之"));
+                    companydetail.add(data==null?"--":data);
+                    data=cursor.getString(cursor.getColumnIndex("净利润亿"));
+                    companydetail.add(data==null?"--":data);
+                    data=cursor.getString(cursor.getColumnIndex("同比增长1百分之"));
+                    companydetail.add(data==null?"--":data);}
+            }
+            cursor.close();
+        }
+        database.close();
+        return  companydetail;
+    }
+    public List<CompanyItem> listCompany_city(String city){  //搜索出来的公司列表
+        List<CompanyItem> companydetail = null;
+
+        String sql="SELECT * FROM company WHERE \"所在省市\" LIKE '%"+city+"%'";
+        database = SQLiteDatabase.openOrCreateDatabase(DBHelper.DB_PATH + "/" + DBHelper.DB_NAME, null);
+        Cursor cursor=database.rawQuery(sql,null);
+        //   Cursor cursor = database.query(TBNAME_company, null, "代码名称 LIKE ?", sql1, null, null, null);
+        if(cursor!=null){
+            Log.i("cursor",String.valueOf(cursor.getCount()));
+            companydetail = new ArrayList<CompanyItem>();
+            while(cursor.moveToNext()){
+                CompanyItem item = new CompanyItem();
+                item.setID(cursor.getString(cursor.getColumnIndex("代码")));
+                item.setName(cursor.getString(cursor.getColumnIndex("名称")));
+                item.setFullName(cursor.getString(cursor.getColumnIndex("公司全称")));
+                item.setLink(cursor.getString(cursor.getColumnIndex("公司详情")));
+                item.setAdd(cursor.getString(cursor.getColumnIndex("公司地址")));
+                item.setCity(cursor.getString(cursor.getColumnIndex("所在省市")));
+                companydetail.add(item);
+            }
+            cursor.close();
+        }
+        database.close();
+        return companydetail;
+    }
 }

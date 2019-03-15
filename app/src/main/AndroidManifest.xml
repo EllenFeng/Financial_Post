@@ -83,7 +83,9 @@
             android:screenOrientation="portrait" />
         <activity android:name=".CompanyContent" />
         <activity android:name=".CompanyLink" />
-        <activity android:name=".company_online_info"></activity>
+        <activity android:name=".company_online_info" />
+        <activity android:name=".Company_overall_info" />
+        <activity android:name=".Data_company_city_list"></activity>
     </application>
 
 </manifest>
