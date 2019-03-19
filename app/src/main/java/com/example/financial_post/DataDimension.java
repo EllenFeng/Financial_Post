@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListAdapter;
 import android.widget.ListView;
@@ -22,6 +23,17 @@ public class DataDimension extends AppCompatActivity {
         ListAdapter adapter=new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,dims);
         ListView listView = (ListView) findViewById(R.id.list_view_data);
         listView.setAdapter(adapter);
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                String dim=dims[position];
+                Intent intent = new Intent();
+                intent.setClass(DataDimension.this, Company_info_fromDataDimension.class);
+                intent.putExtra("dimension",dim);
+                startActivity(intent);
+                finish();
+            }
+        });
     }
     public void back(View btn){
         Intent home = new Intent(this, MainActivity.class);
