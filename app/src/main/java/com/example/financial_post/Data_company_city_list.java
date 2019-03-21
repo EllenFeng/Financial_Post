@@ -1,5 +1,7 @@
 package com.example.financial_post;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Handler;
 import android.os.Message;
@@ -16,7 +18,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-public class Data_company_city_list extends AppCompatActivity implements Runnable{
+public class Data_company_city_list extends AppCompatActivity implements Runnable{   //分地区显示的公司列表
     String city;
     private SimpleAdapter adapter1;
     private List<HashMap<String, String>> detailList;
@@ -77,6 +79,27 @@ public class Data_company_city_list extends AppCompatActivity implements Runnabl
         Intent home = new Intent(this, DataPlace.class);
         startActivity(home);
         finish();
+    }
+
+    public void openmenu(View btn){
+        final String[] str_menu=new String[]{"数据"};
+        AlertDialog.Builder builder=new AlertDialog.Builder(this);
+        builder.setItems(str_menu,new DialogInterface.OnClickListener(){
+
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                switch (which){
+                    case 0:
+                        Intent intent = new Intent();
+                        intent.setClass(Data_company_city_list.this, City_info_fromDataCityList.class);
+                        intent.putExtra("city",city);
+                        startActivity(intent);
+                        break;
+                }
+            }
+        });
+        builder.create().show();
+
     }
 
     @Override

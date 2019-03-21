@@ -24,6 +24,8 @@ public class Company_info_fromDataDimension extends AppCompatActivity implements
     MyGridView gridView;
     TextView textView;
     Handler handler;
+    Integer[] itemNums={8,8,7,9,7,9,7,6};
+    int num;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,7 +50,8 @@ public class Company_info_fromDataDimension extends AppCompatActivity implements
                     gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                         @Override
                         public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                            String a=infodetail.get(position);
+                            int i=position%num;
+                            String a=infodetail.get(i);
                             Toast.makeText(Company_info_fromDataDimension.this,a,Toast.LENGTH_SHORT).show();
                         }
                     });
@@ -68,27 +71,35 @@ public class Company_info_fromDataDimension extends AppCompatActivity implements
         }
         switch (dimension){
             case "业绩概览":
+                num=itemNums[0];
                 yejigailan();
                 break;
             case "盈利能力":
+                num=itemNums[1];
                 yinglinengli();
                 break;
             case "营运能力":
+                num=itemNums[2];
                 yingyunnengli();
                 break;
             case "资产负债表":
+                num=itemNums[3];
                 zichanfuzhai();
                 break;
             case "现金流量表":
+                num=itemNums[4];
                 xianjinliuliang();
                 break;
             case "利润表":
+                num=itemNums[5];
                 lirun();
                 break;
             case "偿债能力":
+                num=itemNums[6];
                 changzhainengli();
                 break;
             case "成长能力":
+                num=itemNums[7];
                 chengzhangnengli();
                 break;
         }
@@ -108,7 +119,7 @@ public class Company_info_fromDataDimension extends AppCompatActivity implements
         infodetail.add("同比增长（%）");
         Cursor cursor;
         String table="yejigailan";
-        String sql="SELECT * FROM "+table+ " order by \"年份\"";
+        String sql="SELECT * FROM "+table+ " order by \"年份\" DESC";
         cursor=database.rawQuery(sql,null);
         if(cursor==null){
             cursor.close();
@@ -156,7 +167,7 @@ public class Company_info_fromDataDimension extends AppCompatActivity implements
         infodetail.add("比上期（亿）");
         Cursor cursor;
         String table="zichanfuzhai";
-        String sql="SELECT * FROM "+table+ " order by \"年份\"";
+        String sql="SELECT * FROM "+table+ " order by \"年份\" DESC";
         cursor=database.rawQuery(sql,null);
         if(cursor==null){
             cursor.close();
@@ -206,7 +217,7 @@ public class Company_info_fromDataDimension extends AppCompatActivity implements
         infodetail.add("基本每股收益");
         Cursor cursor;
         String table="lirun";
-        String sql="SELECT * FROM "+table+ " order by \"年份\"";
+        String sql="SELECT * FROM "+table+ " order by \"年份\" DESC";
         cursor=database.rawQuery(sql,null);
         if(cursor==null){
             cursor.close();
@@ -254,7 +265,7 @@ public class Company_info_fromDataDimension extends AppCompatActivity implements
         infodetail.add("总计净现金流（亿）");
         Cursor cursor;
         String table="xianjinliuliang";
-        String sql="SELECT * FROM "+table+ " order by \"年份\"";
+        String sql="SELECT * FROM "+table+ " order by \"年份\" DESC";
         cursor=database.rawQuery(sql,null);
         if(cursor==null){
             cursor.close();
@@ -297,7 +308,7 @@ public class Company_info_fromDataDimension extends AppCompatActivity implements
         infodetail.add("总资产增长率（%）");
         Cursor cursor;
         String table="chengzhangnengli";
-        String sql="SELECT * FROM "+table+ " order by \"年份\"";
+        String sql="SELECT * FROM "+table+ " order by \"年份\" DESC";
         cursor=database.rawQuery(sql,null);
         if(cursor==null){
             cursor.close();
@@ -339,7 +350,7 @@ public class Company_info_fromDataDimension extends AppCompatActivity implements
         infodetail.add("资产负债率（%）");
         Cursor cursor;
         String table="changzhainengli";
-        String sql="SELECT * FROM "+table+ " order by \"年份\"";
+        String sql="SELECT * FROM "+table+ " order by \"年份\" DESC";
         cursor=database.rawQuery(sql,null);
         if(cursor==null){
             cursor.close();
@@ -385,7 +396,7 @@ public class Company_info_fromDataDimension extends AppCompatActivity implements
         infodetail.add("三项费用比重（%）");
         Cursor cursor;
         String table="yinglinengli";
-        String sql="SELECT * FROM "+table+ " order by \"年份\"";
+        String sql="SELECT * FROM "+table+ " order by \"年份\" DESC";
         cursor=database.rawQuery(sql,null);
         if(cursor==null){
             cursor.close();
@@ -431,7 +442,7 @@ public class Company_info_fromDataDimension extends AppCompatActivity implements
         infodetail.add("净现金流/流动负债");
         Cursor cursor;
         String table="yingyunnengli";
-        String sql="SELECT * FROM "+table+ " order by \"年份\"";
+        String sql="SELECT * FROM "+table+ " order by \"年份\" DESC";
         cursor=database.rawQuery(sql,null);
         if(cursor==null){
             cursor.close();
