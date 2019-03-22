@@ -134,6 +134,8 @@ public class CompanyContent extends AppCompatActivity implements Runnable{
                         intent.putExtra("Link",link);
                         intent.putExtra("Add",address);
                         intent.putExtra("City",city);
+                        if(where==2)
+                            intent.putExtra("where",2);
                         startActivity(intent);
                         finish();
                         break;

@@ -32,4 +32,10 @@ public class MyNote_Read extends AppCompatActivity {
         startActivity(intent);
         finish();
     }
+    @Override
+    public void onBackPressed() {
+        Intent home = new Intent(this, MyNote.class);
+        startActivity(home);
+        finish();
+    }
 }
