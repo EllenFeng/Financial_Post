@@ -79,21 +79,26 @@ public class company_online_info extends AppCompatActivity implements Runnable{
         };
     }
     public void openmenu(View btn){
-        final String[] str_menu=new String[]{"更多","可视化"};
+        final String[] str_menu=new String[]{"业绩概览","更多数据"};
         AlertDialog.Builder builder=new AlertDialog.Builder(this);
         builder.setItems(str_menu,new DialogInterface.OnClickListener(){
 
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 switch (which){
-                    case 0:  //更多
+                    case 0:  //业绩概览
                         Intent intent = new Intent();
                         intent.setClass(company_online_info.this, Company_overall_info.class);
                         intent.putExtra("ID",ID);
                         intent.putExtra("Name",name);
                         startActivity(intent);
                         break;
-                    case 1:  //可视化
+                    case 1:  //更多
+                        Intent intent1 = new Intent();
+                        intent1.setClass(company_online_info.this, Company_all_info.class);
+                        intent1.putExtra("ID",ID);
+                        intent1.putExtra("Name",name);
+                        startActivity(intent1);
                         break;
 
                 }

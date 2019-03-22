@@ -89,7 +89,8 @@
         <activity android:name=".Company_info_fromDataDimension" />
         <activity android:name=".ReportContent" />
         <activity android:name=".City_info_fromDataCityList" />
-        <activity android:name=".Company_info_fromDataYear"></activity>
+        <activity android:name=".Company_info_fromDataYear" />
+        <activity android:name=".Company_all_info"></activity>
     </application>
 
 </manifest>

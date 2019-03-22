@@ -10,6 +10,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -33,6 +34,8 @@ public class Company_overall_info extends AppCompatActivity implements Runnable{
         gridView=(MyGridView)findViewById(R.id.gridview);
         gridView.setNumColumns(8);
         textView=findViewById(R.id.company_info);
+        Button btn=findViewById(R.id.onlineinfobtn);
+        btn.setVisibility(View.GONE);
         int msgWhat = 3;
         Thread t = new Thread(Company_overall_info.this);
         t.start();

@@ -24,7 +24,7 @@ public class DataReport extends AppCompatActivity {
         textView.setText("报告");
         reports=new String[]{"2002报告","2003报告","2004报告","2005报告","2006报告","2007报告","2008报告","2009报告","2010报告",
                 "2011报告","2012报告","2013报告","2014报告","2015报告","2016报告","2017报告"};
-        reports=new String[]{"2013报告","2014报告","2015报告","2016报告","2017报告"};
+        reports=new String[]{"2013报告","2014报告","2015报告","2016报告","2017报告","历年数据"};
         Arrays.sort(reports, Collections.<String>reverseOrder());            //顺序从2017-2002
         ListAdapter adapter=new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,reports);
         ListView listView = (ListView) findViewById(R.id.list_view_data);

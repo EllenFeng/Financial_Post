@@ -20,7 +20,7 @@ public class ReportContent extends AppCompatActivity {
 //    ImageView mImageView1,mImageView2,mImageView3,mImageView4,mImageView5,mImageView6,mImageView7,mImageView8;
 //    ImageView[] mImageViews={mImageView1,mImageView2,mImageView3,mImageView4,mImageView5,mImageView6,mImageView7,mImageView8};
     int index;
-    String[] years={"2013","2014","2015","2016","2017"};
+    String[] years={"2013","2014","2015","2016","2017","历年数据"};
     TextView textView;
     ImageView imageView1,imageView2,imageView3,imageView4,imageView5,imageView6,imageView7,imageView8;
     ImageView[] imageViews={imageView1,imageView2,imageView3,imageView4,imageView5,imageView6,imageView7,imageView8};
@@ -33,21 +33,19 @@ public class ReportContent extends AppCompatActivity {
         textView.setText(year+"报告");
         init();
 
-
-
     }
 
     public  void init(){
         index = Arrays.binarySearch(years,year);
         Log.i("index", String.valueOf(index));
-        Integer[] profits={R.drawable.profit2017,R.drawable.profit2017,R.drawable.profit2017,R.drawable.profit2017,R.drawable.profit2017};  //利润
-        Integer[] improvements={R.drawable.improvement2017,R.drawable.improvement2017,R.drawable.improvement2017,R.drawable.improvement2017,R.drawable.improvement2017};  //成长
-        Integer[] makemoneys={R.drawable.makemoney2017,R.drawable.makemoney2017,R.drawable.makemoney2017,R.drawable.makemoney2017,R.drawable.makemoney2017};  //盈利
-        Integer[] managements={R.drawable.management2017,R.drawable.management2017,R.drawable.management2017,R.drawable.management2017,R.drawable.management2017};  //营运
-        Integer[] balances={R.drawable.balance2017,R.drawable.management2017,R.drawable.management2017,R.drawable.management2017,R.drawable.management2017};  //资产负债
-        Integer[] overalls={R.drawable.overall2017,R.drawable.overall2017,R.drawable.overall2017,R.drawable.overall2017,R.drawable.overall2017};  //业绩概览
-        Integer[] cashflows={R.drawable.cashflow2017,R.drawable.cashflow2017,R.drawable.cashflow2017,R.drawable.cashflow2017,R.drawable.cashflow2017};  //现金流量
-        Integer[] paybacks={R.drawable.payback2017,R.drawable.payback2017,R.drawable.payback2017,R.drawable.payback2017,R.drawable.payback2017};  //偿债
+        Integer[] profits={R.drawable.profit2013,R.drawable.profit2014,R.drawable.profit2015,R.drawable.profit2016,R.drawable.profit2017,R.drawable.compare_city2016};  //利润
+        Integer[] improvements={R.drawable.improvement2013,R.drawable.improvement2014,R.drawable.improvement2015,R.drawable.improvement2016,R.drawable.improvement2017,R.drawable.compare_city2013};  //成长
+        Integer[] makemoneys={R.drawable.makemoney2013,R.drawable.makemoney2014,R.drawable.makemoney2015,R.drawable.makemoney2016,R.drawable.makemoney2017,R.drawable.pic20162017};  //盈利
+        Integer[] managements={R.drawable.management2013,R.drawable.management2014,R.drawable.management2015,R.drawable.management2016,R.drawable.management2017,R.drawable.compare_city2014};  //营运
+        Integer[] balances={R.drawable.balance2013,R.drawable.balance2014,R.drawable.balance2015,R.drawable.balance2016,R.drawable.balance2017,R.drawable.compare_city2017};  //资产负债
+        Integer[] overalls={R.drawable.overall2013,R.drawable.overall2014,R.drawable.overall2015,R.drawable.overall2016,R.drawable.overall2017,R.drawable.pic2002_2017};  //业绩概览
+        Integer[] cashflows={R.drawable.cashflow2013,R.drawable.cashflow2014,R.drawable.cashflow2015,R.drawable.cashflow2016,R.drawable.cashflow2017,R.drawable.pic20142015};  //现金流量
+        Integer[] paybacks={R.drawable.payback2013,R.drawable.payback2014,R.drawable.payback2015,R.drawable.payback2016,R.drawable.payback2017,R.drawable.compare_city2015};  //偿债
         imageViews[0]=findViewById(R.id.report_1);
         imageViews[1]=findViewById(R.id.report_2);
         imageViews[2]=findViewById(R.id.report_3);

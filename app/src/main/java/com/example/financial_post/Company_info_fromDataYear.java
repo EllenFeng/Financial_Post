@@ -17,6 +17,8 @@ import java.util.List;
 
 public class Company_info_fromDataYear extends AppCompatActivity {
     String year;
+    Integer[] itemNums={8,8,7,9,7,9,7,6};
+    int num;
     MyGridView gridView1,gridView2,gridView3,gridView4,gridView5,gridView6,gridView7,gridView8;
     TextView textView;
     @Override
@@ -56,6 +58,7 @@ public class Company_info_fromDataYear extends AppCompatActivity {
     }
     public void yejigailan(){
         gridView1.setNumColumns(8);
+        num=itemNums[0];
         SQLiteDatabase database = SQLiteDatabase.openOrCreateDatabase(DBHelper.DB_PATH + "/" + DBHelper.DB_NAME, null);
         final List<String> infodetail=new ArrayList<String>();
         infodetail.add("年份");
@@ -101,13 +104,15 @@ public class Company_info_fromDataYear extends AppCompatActivity {
         gridView1.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                String a=infodetail.get(position);
+                int i=position%num;
+                String a=infodetail.get(i);
                 Toast.makeText(Company_info_fromDataYear.this,a,Toast.LENGTH_SHORT).show();
             }
         });
     }
     public void zichanfuzhai(){
         gridView4.setNumColumns(9);
+        num=itemNums[3];
         SQLiteDatabase database = SQLiteDatabase.openOrCreateDatabase(DBHelper.DB_PATH + "/" + DBHelper.DB_NAME, null);
         final List<String> infodetail=new ArrayList<String>();
         infodetail.add("年份");
@@ -157,13 +162,15 @@ public class Company_info_fromDataYear extends AppCompatActivity {
         gridView4.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                String a=infodetail.get(position);
+                int i=position%num;
+                String a=infodetail.get(i);
                 Toast.makeText(Company_info_fromDataYear.this,a,Toast.LENGTH_SHORT).show();
             }
         });
     }
     public void lirun(){
         gridView6.setNumColumns(9);
+        num=itemNums[5];
         SQLiteDatabase database = SQLiteDatabase.openOrCreateDatabase(DBHelper.DB_PATH + "/" + DBHelper.DB_NAME, null);
         final List<String> infodetail=new ArrayList<String>();
         infodetail.add("年份");
@@ -213,13 +220,15 @@ public class Company_info_fromDataYear extends AppCompatActivity {
         gridView7.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                String a=infodetail.get(position);
+                int i=position%num;
+                String a=infodetail.get(i);
                 Toast.makeText(Company_info_fromDataYear.this,a,Toast.LENGTH_SHORT).show();
             }
         });
     }
     public void xianjinliuliang(){
         gridView5.setNumColumns(7);
+        num=itemNums[4];
         SQLiteDatabase database = SQLiteDatabase.openOrCreateDatabase(DBHelper.DB_PATH + "/" + DBHelper.DB_NAME, null);
         final List<String> infodetail=new ArrayList<String>();
         infodetail.add("年份");
@@ -263,13 +272,15 @@ public class Company_info_fromDataYear extends AppCompatActivity {
         gridView5.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                String a=infodetail.get(position);
+                int i=position%num;
+                String a=infodetail.get(i);
                 Toast.makeText(Company_info_fromDataYear.this,a,Toast.LENGTH_SHORT).show();
             }
         });
     }
     public void chengzhangnengli(){
         gridView8.setNumColumns(6);
+        num=itemNums[7];
         SQLiteDatabase database = SQLiteDatabase.openOrCreateDatabase(DBHelper.DB_PATH + "/" + DBHelper.DB_NAME, null);
         final List<String> infodetail=new ArrayList<String>();
         infodetail.add("年份");
@@ -310,13 +321,15 @@ public class Company_info_fromDataYear extends AppCompatActivity {
         gridView8.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                String a=infodetail.get(position);
+                int i=position%num;
+                String a=infodetail.get(i);
                 Toast.makeText(Company_info_fromDataYear.this,a,Toast.LENGTH_SHORT).show();
             }
         });
     }
     public void changzhainengli(){
         gridView7.setNumColumns(7);
+        num=itemNums[6];
         SQLiteDatabase database = SQLiteDatabase.openOrCreateDatabase(DBHelper.DB_PATH + "/" + DBHelper.DB_NAME, null);
         final List<String> infodetail=new ArrayList<String>();
         infodetail.add("年份");
@@ -360,13 +373,15 @@ public class Company_info_fromDataYear extends AppCompatActivity {
         gridView7.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                String a=infodetail.get(position);
+                int i=position%num;
+                String a=infodetail.get(i);
                 Toast.makeText(Company_info_fromDataYear.this,a,Toast.LENGTH_SHORT).show();
             }
         });
     }
     public void yinglinengli(){
         gridView2.setNumColumns(8);
+        num=itemNums[1];
         SQLiteDatabase database = SQLiteDatabase.openOrCreateDatabase(DBHelper.DB_PATH + "/" + DBHelper.DB_NAME, null);
         final List<String> infodetail=new ArrayList<String>();
         infodetail.add("年份");
@@ -412,13 +427,15 @@ public class Company_info_fromDataYear extends AppCompatActivity {
         gridView2.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                String a=infodetail.get(position);
+                int i=position%num;
+                String a=infodetail.get(i);
                 Toast.makeText(Company_info_fromDataYear.this,a,Toast.LENGTH_SHORT).show();
             }
         });
     }
     public void yingyunnengli(){
         gridView3.setNumColumns(7);
+        num=itemNums[2];
         SQLiteDatabase database = SQLiteDatabase.openOrCreateDatabase(DBHelper.DB_PATH + "/" + DBHelper.DB_NAME, null);
         final List<String> infodetail=new ArrayList<String>();
         infodetail.add("年份");
@@ -462,7 +479,8 @@ public class Company_info_fromDataYear extends AppCompatActivity {
         gridView3.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                String a=infodetail.get(position);
+                int i=position%num;
+                String a=infodetail.get(i);
                 Toast.makeText(Company_info_fromDataYear.this,a,Toast.LENGTH_SHORT).show();
             }
         });
