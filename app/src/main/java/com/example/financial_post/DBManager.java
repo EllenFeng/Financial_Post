@@ -37,7 +37,7 @@ public class DBManager {
     public int countExceeded(){  //收藏数量限制
         database = SQLiteDatabase.openOrCreateDatabase(DBHelper.DB_PATH + "/" + DBHelper.DB_NAME, null);
         Cursor cursor = database.query(TBNAME_mark,null,null,null,null,null,null,null);
-        if(cursor.getCount()>9) { //添加超过10条
+        if(cursor.getCount()>9) { //添加超过10条收藏
             database.close();
             return 1;
         }

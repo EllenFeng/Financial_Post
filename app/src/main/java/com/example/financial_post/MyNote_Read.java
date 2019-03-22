@@ -36,6 +36,6 @@ public class MyNote_Read extends AppCompatActivity {
     public void onBackPressed() {
         Intent home = new Intent(this, MyNote.class);
         startActivity(home);
-        finish();
+        finish();  //Mynote已finish
     }
 }

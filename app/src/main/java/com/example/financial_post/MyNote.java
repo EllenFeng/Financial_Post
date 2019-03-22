@@ -58,7 +58,7 @@ public class MyNote extends AppCompatActivity implements AdapterView.OnItemLongC
                 intent.putExtra("notetitle",title2);    //检查是否为空为空则为新建的，不为空则在read获取title显示并获取相应content
 //                intent.putExtra("date",date2);  不需要传递时间 如果write里面有修改直接获取当天时间 否则不变
                 startActivity(intent);
-                finish();
+                finish();   //编辑后会更新列表
             }
         });
         listView.setOnItemLongClickListener(this);

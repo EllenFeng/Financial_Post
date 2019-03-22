@@ -91,7 +91,7 @@ public class MyNote_write extends AppCompatActivity{
                 Toast.makeText(this,"您还没有保存修改哟！再按一次可直接返回。",Toast.LENGTH_SHORT).show();
                 deleteTime=System.currentTimeMillis();
             }
-            else{  //五秒内再次点击删除，确认不保存退出
+            else{  //五秒内再次点击删除 确认不保存退出
                 Intent intent = new Intent();
                 intent.setClass(MyNote_write.this,MyNote.class);
                 startActivity(intent);
