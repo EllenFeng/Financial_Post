@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.graphics.Paint;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
@@ -12,6 +13,9 @@ import android.os.Message;
 import android.support.annotation.RequiresApi;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.text.Html;
+import android.text.SpannableString;
+import android.text.util.Linkify;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -59,7 +63,19 @@ public class NewsContent extends AppCompatActivity implements Runnable {
 //                    tv2.setText((CharSequence) content);
                     String str = (String) msg.obj;
                     if (str.length() < 1) {
-                        tv.setText("哎呀，你要找的文章不见啦！");
+                        tv.setText(Html.fromHtml("<u>"+"详情"+"</u>"));
+                        tv.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                Intent newslink = new Intent();
+                                newslink.setClass(NewsContent.this, CompanyLink.class);
+                                newslink.putExtra("link",link);
+                                startActivity(newslink);
+                            }
+                        });
+//                        tv.setText(link);
+//                        tv.setAutoLinkMask(Linkify.WEB_URLS);
+       //                 tv.setText("哎呀，你要找的文章不见啦！");
                     } else {
                         tv.setText(title);
                         tv2.setText(str);

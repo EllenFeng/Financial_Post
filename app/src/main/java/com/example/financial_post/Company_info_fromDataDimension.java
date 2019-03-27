@@ -104,7 +104,6 @@ public class Company_info_fromDataDimension extends AppCompatActivity implements
                 break;
         }
     }
-
     public void yejigailan(){
         gridView.setNumColumns(8);
         SQLiteDatabase database = SQLiteDatabase.openOrCreateDatabase(DBHelper.DB_PATH + "/" + DBHelper.DB_NAME, null);

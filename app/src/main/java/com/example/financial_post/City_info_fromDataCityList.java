@@ -39,8 +39,6 @@ public class City_info_fromDataCityList extends AppCompatActivity {
         chengzhangnengli();
 
     }
-
-
     public void init(){
         gridView1=findViewById(R.id.gridview_cityinfo_1);
         gridView2=findViewById(R.id.gridview_cityinfo_2);

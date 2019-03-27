@@ -81,7 +81,6 @@ public class DBManager {
         database.delete(TBNAME_mark,null,null);
         database.close();
     }
-
     public void deleteNews(String title){
         database = SQLiteDatabase.openOrCreateDatabase(DBHelper.DB_PATH + "/" + DBHelper.DB_NAME, null);
         String[] title1={title};

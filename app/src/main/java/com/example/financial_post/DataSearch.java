@@ -49,7 +49,6 @@ public class DataSearch extends AppCompatActivity {
                 listView.setVisibility(View.GONE);  //把ListView隐藏
             }
         });
-
         editText.addTextChangedListener(new TextWatcher() {  //监听输入框
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {}//文本改变之前执行
             @Override
@@ -64,7 +63,6 @@ public class DataSearch extends AppCompatActivity {
             }
             public void afterTextChanged(Editable s) { }  //文本改变之后执行
         });
-
         textView2.setOnClickListener(new View.OnClickListener() {
 
             @Override

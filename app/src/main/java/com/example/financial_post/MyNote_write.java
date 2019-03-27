@@ -45,15 +45,13 @@ public class MyNote_write extends AppCompatActivity{
             Toast.makeText(this,"请设置笔记标题！",Toast.LENGTH_SHORT).show();
             return 1;
         }
-
         if(originalTitle.length()<1){  //如果是新建的文档的第一次保存
             manager.addNote(item1);
             Toast.makeText(this,"已保存！",Toast.LENGTH_SHORT).show();
             originalTitle=title;
             return 1;
         }
-        if(!manager.isNoteExisted(title)) {  //如果没有这个标题的记录  说明这不是第一次在这里点击保存 但是标题变了 drop原先标题记录add新标题记录
-                                              // 操作之后修改originaltitle
+        if(!manager.isNoteExisted(title)) {  //如果没有这个标题的记录  说明这不是第一次在这里点击保存 但是标题变了 drop原先标题记录add新标题记录操作之后修改originaltitle
             manager.deleteNote(originalTitle);
             manager.addNote(item1);
             Toast.makeText(this,"已更新记录！",Toast.LENGTH_SHORT).show();
@@ -69,7 +67,6 @@ public class MyNote_write extends AppCompatActivity{
                 manager.updateNote(item);
                 Toast.makeText(this,"已更新内容！",Toast.LENGTH_SHORT).show();
             }
-
         }
         return 1;
     }

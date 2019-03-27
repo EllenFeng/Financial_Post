@@ -246,7 +246,7 @@ public class CompanyContent extends AppCompatActivity implements Runnable{
             }
             else{  //如果上市了
                 Log.i("issue","issued");
-                String code=link.substring(28,35);//请求数据部分 因为原始link中数据为script src动态加载 直接获取html没有具体数据
+                String code=link.substring(28,35);//请求数据部分 因为原始link中数据为script src动态加载 直接获取link的html没有具体数据
                 String link2="http://api.money.126.net/data/feed/"+code;
                 String html=getHTML(link2,"utf-8").trim();
                 String info_data=html.substring(21,html.length()-1);  //去除首尾不符合json格式的部分
@@ -373,11 +373,5 @@ public class CompanyContent extends AppCompatActivity implements Runnable{
         }
         else
             finish();
-//        else{
-//            Intent intent = new Intent(this, DataSearch.class);
-//            startActivity(intent);
-//            finish();
-//        }
-
     }
 }

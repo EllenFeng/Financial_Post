@@ -48,7 +48,6 @@ public class DBManager_company {
             i+=1;
         }
         sql=sql+name.substring(name.length()-1,name.length());
-
         String sql2="SELECT * FROM company WHERE \"代码名称\" LIKE '%"+sql+"%'";
         database = SQLiteDatabase.openOrCreateDatabase(DBHelper.DB_PATH + "/" + DBHelper.DB_NAME, null);
         Cursor cursor=database.rawQuery(sql2,null);
@@ -179,7 +178,7 @@ public class DBManager_company {
         database.close();
         return  companydetail;
     }
-    public List<CompanyItem> listCompany_city(String city){  //搜索出来的公司列表
+    public List<CompanyItem> listCompany_city(String city){  //对应省市的公司列表
         List<CompanyItem> companydetail = null;
 
         String sql="SELECT * FROM company WHERE \"所在省市\" LIKE '%"+city+"%'";

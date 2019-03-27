@@ -59,8 +59,6 @@ public class BankNews extends AppCompatActivity implements Runnable{
             @Override
             public void handleMessage(Message msg) {
                 if(msg.what == 5){
-//                    List<String> retList = (List<String>) msg.obj;
-//                    ListAdapter adapter = new ArrayAdapter<String>(InternationalNews.this,R.layout.support_simple_spinner_dropdown_item,retList);
                     List<HashMap<String, String>> retList = (List<HashMap<String, String>>) msg.obj;
                     SimpleAdapter adapter = new SimpleAdapter(BankNews.this, retList, // listItems数据源
                             R.layout.list_item, // ListItem的XML布局实现
