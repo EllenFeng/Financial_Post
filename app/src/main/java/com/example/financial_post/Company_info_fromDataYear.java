@@ -104,7 +104,7 @@ public class Company_info_fromDataYear extends AppCompatActivity {
         gridView1.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                int i=position%num;
+                int i=position%8;
                 String a=infodetail.get(i);
                 Toast.makeText(Company_info_fromDataYear.this,a,Toast.LENGTH_SHORT).show();
             }
@@ -162,7 +162,7 @@ public class Company_info_fromDataYear extends AppCompatActivity {
         gridView4.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                int i=position%num;
+                int i=position%9;
                 String a=infodetail.get(i);
                 Toast.makeText(Company_info_fromDataYear.this,a,Toast.LENGTH_SHORT).show();
             }
@@ -220,7 +220,7 @@ public class Company_info_fromDataYear extends AppCompatActivity {
         gridView7.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                int i=position%num;
+                int i=position%9;
                 String a=infodetail.get(i);
                 Toast.makeText(Company_info_fromDataYear.this,a,Toast.LENGTH_SHORT).show();
             }
@@ -272,7 +272,7 @@ public class Company_info_fromDataYear extends AppCompatActivity {
         gridView5.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                int i=position%num;
+                int i=position%7;
                 String a=infodetail.get(i);
                 Toast.makeText(Company_info_fromDataYear.this,a,Toast.LENGTH_SHORT).show();
             }
@@ -321,7 +321,7 @@ public class Company_info_fromDataYear extends AppCompatActivity {
         gridView8.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                int i=position%num;
+                int i=position%6;
                 String a=infodetail.get(i);
                 Toast.makeText(Company_info_fromDataYear.this,a,Toast.LENGTH_SHORT).show();
             }
@@ -373,7 +373,7 @@ public class Company_info_fromDataYear extends AppCompatActivity {
         gridView7.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                int i=position%num;
+                int i=position%7;
                 String a=infodetail.get(i);
                 Toast.makeText(Company_info_fromDataYear.this,a,Toast.LENGTH_SHORT).show();
             }
@@ -427,7 +427,7 @@ public class Company_info_fromDataYear extends AppCompatActivity {
         gridView2.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                int i=position%num;
+                int i=position%8;
                 String a=infodetail.get(i);
                 Toast.makeText(Company_info_fromDataYear.this,a,Toast.LENGTH_SHORT).show();
             }
@@ -479,7 +479,7 @@ public class Company_info_fromDataYear extends AppCompatActivity {
         gridView3.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                int i=position%num;
+                int i=position%7;
                 String a=infodetail.get(i);
                 Toast.makeText(Company_info_fromDataYear.this,a,Toast.LENGTH_SHORT).show();
             }

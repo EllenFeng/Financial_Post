@@ -113,9 +113,10 @@ public class PolicyNews extends AppCompatActivity implements Runnable{
         List<HashMap<String, String>> rateList = new ArrayList<HashMap<String, String>>();
         try {
             Document doc = Jsoup.connect("http://finance.sina.com.cn/stock/kechuangban/").get();
-            Elements titles = doc.select(".m-blk3 a");
-            Elements titles1 = doc.select(".m-article-box1 a");
-            Elements titles2 = doc.select(".cardlist-w a");
+            Elements titles = doc.select(".m-part1 a");
+            Elements titles1 = doc.select(".m-part2 a");
+      //      Elements titles1 = doc.select(".m-article-box1 a");
+      //      Elements titles2 = doc.select(".cardlist-w a");
             for (int i = 0; i < titles.size(); i+=1) {
                 Element newstitle = titles.get(i);
                 String titleStr = newstitle.text();
@@ -152,24 +153,24 @@ public class PolicyNews extends AppCompatActivity implements Runnable{
                 map.put("ItemResource",resource);
                 rateList.add(map);
             }
-            for (int i = 0; i < titles2.size(); i+=1) {
-                Element newstitle = titles2.get(i);
-                String titleStr = newstitle.text();
-                String linkStr = newstitle.attr("href");
-                if(titleStr.length()<1)
-                    continue;
-                HashMap<String, String> map = new HashMap<String, String>();
-                int index=match.matchPattern(linkStr);
-                if(index==-1)
-                    dateStr=todayStr;
-                else
-                    dateStr=linkStr.substring(index,index+10);
-                map.put("ItemTitle", titleStr);  //标题
-                map.put("ItemOrigin", dateStr);  //日期
-                map.put("ItemLink", linkStr);  //存储链接
-                map.put("ItemResource",resource);
-                rateList.add(map);
-            }
+//            for (int i = 0; i < titles2.size(); i+=1) {
+//                Element newstitle = titles2.get(i);
+//                String titleStr = newstitle.text();
+//                String linkStr = newstitle.attr("href");
+//                if(titleStr.length()<1)
+//                    continue;
+//                HashMap<String, String> map = new HashMap<String, String>();
+//                int index=match.matchPattern(linkStr);
+//                if(index==-1)
+//                    dateStr=todayStr;
+//                else
+//                    dateStr=linkStr.substring(index,index+10);
+//                map.put("ItemTitle", titleStr);  //标题
+//                map.put("ItemOrigin", dateStr);  //日期
+//                map.put("ItemLink", linkStr);  //存储链接
+//                map.put("ItemResource",resource);
+//                rateList.add(map);
+//            }
         } catch (MalformedURLException e) {
             Log.e("www", e.toString());
             e.printStackTrace();
